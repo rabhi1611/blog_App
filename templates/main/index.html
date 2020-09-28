@@ -1,25 +1,40 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base.html'%}
+    {% block content %}
 
-{% block content %}
     
-        <div class="container">
-            <h1 class="red"><u>Welcome to blog application</u></h1>
-
-            
-            <h5>Latest Articles:</h5>
-        
-            <ol type='1'>
-                {% for article in latest_articles %}
-                <li><a href="{% url 'get_article' article.id %}">{{article}}</a></li>
-                {% endfor %}
-            </ul>
-            <br>
-            <h5 style="display: inline-block;margin-right: 20%;"><a href="{% url 'create_author' %}" class="center"><strong>tap to create new author</strong></a></h5>
-            
-            <h5 style="display: inline-block;margin-left: 20%;"><a href="{% url 'create_article' %}" class="center"><strong>tap to create new article</strong></a></h5>
-
-            
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        {% for entry in blog_entries %}
+        <!-- Blog Post -->
+        <div class="card mb-4 mt-4">
+          <div class="card-body">
+            <h3 class="card-title">{{entry.entry_title}}</h3>
+            <p class="card-text">{{entry.entry_text|truncatechars:100}}</p>
+            <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on {{entry.entry_date}} by
+            <span class= "text-info mr-2">{{entry.entry_author}}</span>
+          </div>
         </div>
-      
-            
-{% endblock %}
+        {% endfor %}
+
+        {% if is_paginated %}
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number}}">&larr; Previous Page</a>
+          </li>
+          {% endif %}
+
+          {% if page_obj.has_next%}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number}}">Next Page &rarr;</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+      </div>
+
+      {% endblock %}

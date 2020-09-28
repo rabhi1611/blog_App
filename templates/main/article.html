@@ -1,16 +1,25 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base.html'%}
+    {% block content %}
 
+    
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        <a href="{% url 'blog-home' %}">Back to Home</a>
+        <!-- Blog Post -->
+        <div class="card mb-4 mt-4">
+          <div class="card-body">
+            <h3 class="card-title">{{object.entry_title}}</h3>
+            <p class="card-text">{{object.entry_text|linebreaks}}</p>
+        
+          </div>
+          <div class="card-footer text-muted">
+            Posted on {{object.entry_date}} by
+            <span class= "text-info mr-2">{{object.entry_author}}</span>
+          </div>
+        </div>
 
-{% block content %} 
-    <div class="container">
-    <h1 style="color:red;">{{article.title}}</h1>
-    <h3>created At {{article.CreatedAt}}</h3>
-    <h4>written by: </h4>
-        <ol type=1>
-        {% for author in article.author.all %}
-            <li><a href="{% url 'get_author' author.id%}">{{author}}</a></li>
-        {% endfor %}
-        </ol>
-    <p><strong>content:</strong><br>{{article.Write_article}}</p>
-</div>
-{% endblock %}
+        <!-- Pagination -->
+  
+      </div>
+
+      {% endblock %}
