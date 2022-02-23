@@ -18,6 +18,19 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'main/css/blog-home.css' %}" rel="stylesheet">
 
+  <style>
+    
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+      
+  </style>
 </head>
 
 <body>
@@ -78,8 +91,8 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
+  <footer class="pt-5 bg-dark">
+    <div class="container"  style="margin-bottom: 25px;">
       <p class="m-0 text-center text-white">Copyright &copy; Blog Website 2020</p>
     </div>
     <!-- /.container -->

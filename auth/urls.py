@@ -1,6 +1,6 @@
 from django.urls import path
 from auth import views
-from django.conf.urls import url
+#from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 #from auth.views import views as auth_views
 urlpatterns= [
