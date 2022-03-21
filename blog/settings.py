@@ -140,3 +140,7 @@ EMAIL_USE_SSL = False
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
+
+
+import django_heroku
+django_heroku.settings(locals())
