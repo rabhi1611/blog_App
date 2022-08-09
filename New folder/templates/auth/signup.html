@@ -1,0 +1,26 @@
+{% extends 'main/base.html'%}
+    {% block content %}
+
+    
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        <a href="{% url 'login' %}">Back to Login</a>
+        <!-- Blog Post -->
+        <div class="card mb-4 mt-4">
+          <div class="card-header">
+            Create Your Account:
+          </div>
+          <div class="card-body">
+            <form method="POST" class="form-group">
+                {% csrf_token %}
+                {{ form|linebreaks}}
+                <button type="submit" class="btn btn-success">Register</button>
+                </form>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+  
+      </div>
+
+      {% endblock %}

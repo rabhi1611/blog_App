@@ -1,0 +1,27 @@
+{% extends 'main/base.html'%}
+    {% block content %}
+
+    
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        <!-- Blog Post -->
+        <div class="card mb-4 mt-4">
+          <div class="card-header">
+            Login:
+          </div>
+          <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary" >Login</button>
+              </form>
+              <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
+          </div>
+          <a type="submit" class="btn btn-primary" href="{% url 'signup'%}">Don't have an Account?..Signup</a>
+        </div>
+
+        <!-- Pagination -->
+  
+      </div>
+
+      {% endblock %}
