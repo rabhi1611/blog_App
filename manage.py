@@ -6,7 +6,7 @@ import dotenv
 import pathlib
 
 def main():
-    dotenv.read_dotenv(override = True)
+    #dotenv.read_dotenv(override = True)
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog.settings')
     try:

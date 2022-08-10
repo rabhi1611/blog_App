@@ -14,7 +14,7 @@ import pathlib
 
 from django.core.wsgi import get_wsgi_application
 
-dotenv.read_dotenv(override = True)
+#dotenv.read_dotenv(override = True)
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog.settings')
 
